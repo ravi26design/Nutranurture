@@ -99,7 +99,7 @@ html = head(
     <div>
       <p class="hero__name">Akanksha Bhargava</p>
       <h1>Sustainable Nutrition for Real Life.</h1>
-      <p class="hero__lede">Clinical Nutritionist, Certified Diabetes Educator and Corporate Wellness Consultant. <strong>Personalised, practical nutrition plans</strong> built around your medical history, your routine and the food you already cook at home &mdash; <strong>no starvation, no extreme restrictions</strong>.</p>
+      <p class="hero__lede">Clinical Nutritionist, Certified Diabetes Educator and Corporate Wellness Consultant. <strong>Personalised, practical nutrition plans</strong> built around your medical history, your routine and the food you already cook at home - <strong>no starvation, no extreme restrictions</strong>.</p>
       <div class="btn-row">
         <a class="btn btn--primary is-parked" aria-disabled="true" tabindex="-1">Book a Consultation {CHIP}</a>
         <a class="btn btn--outline is-parked" aria-disabled="true" tabindex="-1">How It Works {CHIP}</a>
