@@ -652,3 +652,57 @@ html.js .reveal.is-in{ opacity:1; transform:none; transition:opacity .55s ease, 
 .wa-float.is-parked:hover{ background:#2AAD55; }
 .footer-links a.is-parked:hover{ color:var(--ink-2); }
 .btn.is-parked:hover .chip{ transform:none; }
+
+/* ==========================================================================
+   Small-screen hardening
+   ========================================================================== */
+
+/* Long unbroken strings (the email address) must not push the page wide */
+.contact-list a,.contact-list p,
+.footer-contact a,.footer-contact p,
+.form-status,.prose,.card p,.tstm blockquote{
+  overflow-wrap:anywhere;
+}
+
+/* A fixed header would otherwise cover anything reached by #anchor */
+[id]{ scroll-margin-top:110px; }
+
+@media (max-width:1080px){
+  [id]{ scroll-margin-top:96px; }
+}
+
+@media (max-width:680px){
+  /* Inline contact links are text, so give them a finger-sized hit area */
+  .contact-list a,.footer-contact a{
+    display:inline-block; padding-block:.4rem; min-height:44px;
+    line-height:1.7;
+  }
+  .footer-contact p{ margin-bottom:.2rem; }
+
+  /* Breadcrumb "Home" is the last sub-44px target */
+  .crumbs a{ display:inline-block; padding:.6rem .1rem; min-height:44px; line-height:1.9; }
+  .crumbs{ margin-bottom:.4rem; }
+
+  /* The email is the longest token on the page: shrink it so it stays on one
+     line rather than breaking mid-word. overflow-wrap above is the fallback. */
+  .contact-list a[href^="mailto"],.footer-contact a[href^="mailto"]{
+    font-size:.95rem;
+  }
+
+  /* Breathing room where two columns became one */
+  .section{ padding:clamp(2.75rem,10vw,3.5rem) 0; }
+  .hero{ padding-top:clamp(6.5rem,22vw,8rem); }
+  .quote{ border-left-width:3px; }
+  .footer-grid{ gap:2rem; }
+}
+
+/* Very small handsets */
+@media (max-width:360px){
+  .contact-list a[href^="mailto"],.footer-contact a[href^="mailto"]{ font-size:.88rem; }
+  .pill{ gap:.5rem; padding:.4rem .4rem .4rem .55rem; }
+  .pill__toggle{ padding:.5rem .8rem; }
+  .btn{ padding-left:1.1rem; font-size:.92rem; }
+  .hero__badge{ padding:.55rem 1rem; }
+  .hero__badge b{ font-size:1.35rem; }
+  .circle__img{ width:min(100%,180px); }
+}
