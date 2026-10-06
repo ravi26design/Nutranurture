@@ -159,7 +159,7 @@ html = head(
 
 <section class="section">
   <div class="wrap">
-    <div class="section-head reveal">
+    <div class="section-head section-head--center reveal">
       <p class="eyebrow">Where would you like to begin?</p>
       <h2>Two Ways to Work Together</h2>
     </div>
@@ -241,7 +241,7 @@ html = head(
 
 <section class="section">
   <div class="wrap">
-    <div class="section-head reveal">
+    <div class="section-head section-head--center reveal">
       <p class="eyebrow">Experience</p>
       <h2>Two Decades Across Hospitals, Workplaces and Camps</h2>
     </div>
