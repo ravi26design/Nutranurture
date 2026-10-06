@@ -714,3 +714,35 @@ html.js .reveal.is-in{ opacity:1; transform:none; transition:opacity .55s ease, 
   .hero__badge b{ font-size:1.35rem; }
   .circle__img{ width:min(100%,180px); }
 }
+
+/* --------------------------------------------------------------------------
+   Stats on phones: four loose stacked blocks become one tidy panel of rows,
+   each with a tinted icon chip. Long labels still have room to breathe.
+   -------------------------------------------------------------------------- */
+@media (max-width:680px){
+  .stats{
+    grid-template-columns:1fr; gap:0;
+    background:var(--white);
+    border:1px solid var(--line); border-radius:var(--r-lg);
+    overflow:hidden;
+  }
+  .stat{
+    display:grid; grid-template-columns:auto 1fr;
+    column-gap:1rem; align-items:center;
+    padding:1.05rem 1.15rem;
+    border-top:1px solid var(--line);
+  }
+  .stat:first-child{ border-top:0; }
+  .stat svg{
+    grid-row:1 / span 2; align-self:center;
+    width:22px; height:22px; margin:0;
+    padding:13px; box-sizing:content-box;
+    border-radius:50%;
+    background:var(--green-tint); color:var(--green-dk);
+  }
+  .stat:nth-child(2) svg{ background:var(--red-tint);  color:var(--red); }
+  .stat:nth-child(3) svg{ background:var(--gold-tint); color:#B5790D; }
+  .stat:nth-child(4) svg{ background:var(--green-tint);color:var(--green-dk); }
+  .stat b{ font-size:1.7rem; line-height:1.05; }
+  .stat span{ margin-top:.15rem; font-size:.92rem; line-height:1.45; }
+}
