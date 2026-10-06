@@ -603,8 +603,16 @@ html.js .reveal.is-in{ opacity:1; transform:none; transition:opacity .55s ease, 
   .pill__cta{ margin-top:.6rem; justify-content:center; }
 
   .hero__grid,.quote-panel,.split,.split--narrow,.contact-grid{ grid-template-columns:1fr; }
-  /* once the hero stacks, the portrait leads */
+  /* once the hero stacks, the portrait leads and the copy centres */
   .hero__media{ order:-1; margin-bottom:.5rem; }
+  .hero__grid > div{ text-align:center; }
+  .hero__name{ justify-content:center; }
+  .hero h1{ max-width:none; margin-inline:auto; }
+  .hero__lede{ margin-inline:auto; }
+  /* let the tick sit inline so a wrapped note stays evenly centred */
+  .hero__assure{ display:block; }
+  .hero__assure svg{ display:inline-block; vertical-align:-3px; margin-right:.35rem; }
+  .hero .btn-row{ justify-content:center; }
   .cards--3,.circles{ grid-template-columns:repeat(2,1fr); }
   .steps{ grid-template-columns:repeat(2,1fr); }
   .creds ul{ grid-template-columns:repeat(2,1fr); }
