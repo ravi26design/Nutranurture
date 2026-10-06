@@ -534,10 +534,12 @@ em{ font-family:var(--serif); font-style:italic; }
   font-size:.97rem; color:var(--ink-2); text-decoration:none;
 }
 .footer-links a:hover{ color:var(--red); }
+.footer-links a{ transition:color .18s ease; }
 
 .footer-contact p{ margin-bottom:.6rem; font-size:.97rem; }
 .footer-contact a{ color:var(--ink-2); text-decoration:none; }
 .footer-contact a:hover{ color:var(--red); }
+.footer-contact a{ transition:color .18s ease; }
 .footer-name{ font-family:var(--serif); font-size:1.15rem; font-weight:700; color:var(--ink); margin-bottom:.1rem !important; }
 .footer-role{ font-family:var(--serif); font-style:italic; color:var(--green-dk); font-size:.98rem !important; }
 .footer-addr{ color:var(--ink-3); }
@@ -645,7 +647,10 @@ html.js .reveal.is-in{ opacity:1; transform:none; transition:opacity .55s ease, 
    An <a> without href is already non-clickable and non-focusable; these rules
    just remove the affordances that would imply otherwise.
    -------------------------------------------------------------------------- */
-.is-parked{ cursor:default; pointer-events:none; }
+/* A parked anchor has no href, so it cannot navigate and is not focusable.
+   pointer-events stays enabled so hover styling still works; the buttons
+   below neutralise their own hover, and text links keep their colour change. */
+.is-parked{ cursor:default; }
 .pill__nav ul a.is-parked:hover{ background:transparent; color:var(--ink-2); }
 .btn.is-parked:hover{ background:inherit; border-color:inherit; }
 .btn--primary.is-parked:hover{ background:var(--red); }
@@ -657,7 +662,11 @@ html.js .reveal.is-in{ opacity:1; transform:none; transition:opacity .55s ease, 
 .textlink.is-parked:hover{ color:var(--red); }
 .textlink.is-parked:hover .chip{ transform:none; }
 .wa-float.is-parked:hover{ background:#2AAD55; }
-.footer-links a.is-parked:hover{ color:var(--ink-2); }
+/* Footer links keep their hover colour even while parked — they read as
+   links, so they should behave like them on hover. They still do not
+   navigate, because the anchor carries no href. */
+.footer-links a.is-parked{ cursor:pointer; }
+.footer-links a.is-parked:hover{ color:var(--red); }
 .btn.is-parked:hover .chip{ transform:none; }
 
 /* ==========================================================================
