@@ -680,8 +680,10 @@ html.js .reveal.is-in{ opacity:1; transform:none; transition:opacity .55s ease, 
 }
 
 @media (max-width:680px){
-  /* Inline contact links are text, so give them a finger-sized hit area */
-  .contact-list a,.footer-contact a{
+  /* Inline contact links are text, so give them a finger-sized hit area.
+     Scoped to the paragraphs so it cannot touch .footer-social, whose
+     anchors are centring grids. */
+  .contact-list a,.footer-contact p a{
     display:inline-block; padding-block:.4rem; min-height:44px;
     line-height:1.7;
   }
@@ -693,7 +695,7 @@ html.js .reveal.is-in{ opacity:1; transform:none; transition:opacity .55s ease, 
 
   /* The email is the longest token on the page: shrink it so it stays on one
      line rather than breaking mid-word. overflow-wrap above is the fallback. */
-  .contact-list a[href^="mailto"],.footer-contact a[href^="mailto"]{
+  .contact-list a[href^="mailto"],.footer-contact p a[href^="mailto"]{
     font-size:.95rem;
   }
 
@@ -706,7 +708,7 @@ html.js .reveal.is-in{ opacity:1; transform:none; transition:opacity .55s ease, 
 
 /* Very small handsets */
 @media (max-width:360px){
-  .contact-list a[href^="mailto"],.footer-contact a[href^="mailto"]{ font-size:.88rem; }
+  .contact-list a[href^="mailto"],.footer-contact p a[href^="mailto"]{ font-size:.88rem; }
   .pill{ gap:.5rem; padding:.4rem .4rem .4rem .55rem; }
   .pill__toggle{ width:44px; height:44px; }
   .btn{ padding-left:1.1rem; font-size:.92rem; }
@@ -777,4 +779,27 @@ html.js .reveal.is-in{ opacity:1; transform:none; transition:opacity .55s ease, 
     color:var(--green-dk); border-color:var(--line-2);
   }
   .footer-social svg{ width:26px; height:26px; }
+}
+
+/* --------------------------------------------------------------------------
+   Footer on phones: everything centres, since the three columns have
+   collapsed into one stack.
+   -------------------------------------------------------------------------- */
+@media (max-width:680px){
+  .footer-grid{ text-align:center; }
+  .site-footer h2{ text-align:center; }
+
+  /* the anchors are inline-flex, so text-align centres them inside each row */
+  .footer-links{ justify-items:center; }
+  .footer-links a{ text-align:left; }
+
+  .footer-contact p{ margin-inline:auto; }
+  .footer-social{ justify-content:center; }
+
+  .footer-bottom{
+    flex-direction:column; align-items:center; text-align:center;
+    gap:.85rem;
+  }
+  .footer-bottom > span:last-child{ margin-left:0; }
+  .footer-logo{ margin-inline:auto; }
 }
