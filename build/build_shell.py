@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Shared chrome — floating pill nav, Cinzel headings, gradient footer."""
 
-VER = "9"
+VER = "10"
 
 PHONE = "+91 9920039625"
 PHONE_PRETTY = "+91 99200 39625"
@@ -98,7 +98,7 @@ def header(active):
 
     <button class="pill__toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
       <span class="pill__bars" aria-hidden="true"><i></i><i></i><i></i></span>
-      Menu
+      <span class="sr-only">Menu</span>
     </button>
 
     <nav class="pill__nav" id="primary-nav" aria-label="Primary">
