@@ -209,13 +209,10 @@ em{ font-family:var(--serif); font-style:italic; }
 .section--white{ background:var(--white); }
 
 .eyebrow{
-  display:inline-flex; align-items:center; gap:.6rem;
+  display:inline-flex; align-items:center;
   font-family:var(--serif); font-style:italic;
   font-size:1.02rem; font-weight:600; color:var(--green-dk);
   margin:0 0 .85rem;
-}
-.eyebrow::before{
-  content:""; width:22px; height:2px; background:var(--gold); border-radius:2px;
 }
 
 .section-head{ max-width:58ch; margin-bottom:clamp(2.25rem,4vw,3.25rem); }
@@ -241,11 +238,10 @@ em{ font-family:var(--serif); font-style:italic; }
 .hero__grid > *{ min-width:0; }
 
 .hero__name{
-  display:flex; align-items:center; gap:.7rem;
+  display:flex; align-items:center;
   font-family:var(--serif); font-style:italic; font-size:1.08rem; font-weight:600;
   color:var(--red); margin:0 0 1.25rem;
 }
-.hero__name::before{ content:""; width:26px; height:2px; background:var(--gold); border-radius:2px; }
 
 .hero h1{ max-width:15ch; }
 .hero h1 em{ color:var(--green-dk); }
