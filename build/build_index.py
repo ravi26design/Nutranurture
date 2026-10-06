@@ -272,7 +272,7 @@ html = head(
     </div>
 
     <div class="btn-row btn-row--center reveal" style="margin-top:2.25rem">
-      <a class="btn btn--soft" href="stories.html">Read All Client Stories {CHIP}</a>
+      <a class="btn btn--primary" href="stories.html">Read All Client Stories {CHIP}</a>
     </div>
   </div>
 </section>
