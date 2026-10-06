@@ -530,10 +530,9 @@ em{ font-family:var(--serif); font-style:italic; }
 }
 .footer-links{ display:grid; gap:.75rem; }
 .footer-links a{
-  display:inline-flex; align-items:baseline; gap:.55rem;
+  display:inline-block;
   font-size:.97rem; color:var(--ink-2); text-decoration:none;
 }
-.footer-links a::before{ content:""; width:7px; height:7px; flex:none; border-radius:50% 50% 50% 0; transform:rotate(-45deg) translateY(-2px); background:var(--green); }
 .footer-links a:hover{ color:var(--red); }
 
 .footer-contact p{ margin-bottom:.6rem; font-size:.97rem; }
