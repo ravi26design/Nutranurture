@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Shared chrome — floating pill nav, Cinzel headings, gradient footer."""
 
-VER = "8"
+VER = "9"
 
 PHONE = "+91 9920039625"
 PHONE_PRETTY = "+91 99200 39625"
@@ -66,7 +66,8 @@ def head(title, description, active):
 <meta property="og:description" content="{description}">
 <meta property="og:type" content="website">
 <meta property="og:image" content="assets/akanksha.jpg">
-<link rel="icon" href="assets/logo.jpg">
+<link rel="icon" href="assets/logo-mark.png">
+<link rel="apple-touch-icon" href="assets/logo-mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -92,8 +93,7 @@ def header(active):
 <header class="site-header">
   <div class="pill">
     <a class="pill__brand" href="index.html">
-      <img src="assets/logo.jpg" alt="" width="36" height="36">
-      <span>NutraNurture</span>
+      <img src="assets/logo-lockup.png" alt="NutraNurture — Nurturing Lives" width="900" height="289">
     </a>
 
     <button class="pill__toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
@@ -164,6 +164,7 @@ def footer():
   </div>
 
   <div class="wrap footer-bottom">
+    <img class="footer-logo" src="assets/logo-lockup.png" alt="NutraNurture — Nurturing Lives" width="900" height="289">
     <span>&copy; <span data-year>2026</span> NutraNurture by Akanksha Bhargava</span>
     <span>Indian Dietetics Association &middot; Ahmedabad Dietetics Association &middot; IAPEN</span>
   </div>

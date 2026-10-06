@@ -173,11 +173,11 @@ em{ font-family:var(--serif); font-style:italic; }
 }
 .site-header.is-stuck .pill{ box-shadow:var(--shadow-lift); }
 
-.pill__brand{ display:flex; align-items:center; gap:.6rem; text-decoration:none; flex:none; margin-right:auto; }
-.pill__brand img{ width:40px; height:40px; border-radius:50%; object-fit:contain; background:var(--cream); }
-.pill__brand span{
-  font-family:var(--serif); font-size:1.08rem; font-weight:700;
-  color:var(--red); letter-spacing:-.01em;
+.pill__brand{ display:flex; align-items:center; text-decoration:none; flex:none; margin-right:auto; }
+.pill__brand img{
+  height:52px; width:auto; max-width:min(46vw,190px); object-fit:contain;
+  /* the artwork ships on white — multiply drops it onto any warm ground */
+  mix-blend-mode:multiply;
 }
 
 .pill__nav{ display:flex; align-items:center; gap:.9rem; }
@@ -554,9 +554,13 @@ em{ font-family:var(--serif); font-style:italic; }
 .footer-bottom{
   border-top:1px solid var(--line);
   padding-block:1.3rem;
-  display:flex; flex-wrap:wrap; gap:.75rem; justify-content:space-between;
+  display:flex; flex-wrap:wrap; align-items:center; gap:.9rem 1.5rem;
   font-size:.9rem; color:var(--ink-3);
 }
+.footer-logo{
+  height:38px; width:auto; flex:none; mix-blend-mode:multiply;
+}
+.footer-bottom > span:last-child{ margin-left:auto; }
 
 /* -------------------------------------------------------- WhatsApp float */
 
@@ -611,7 +615,7 @@ html.js .reveal.is-in{ opacity:1; transform:none; transition:opacity .55s ease, 
 
 @media (max-width:680px){
   body{ font-size:16.5px; }
-  .pill__brand span{ display:none; }
+  .pill__brand img{ height:42px; }
   .cards--2,.cards--3,.circles,.steps,.field-row,.stats,.footer-grid{ grid-template-columns:1fr; }
   .creds ul{ grid-template-columns:1fr; }
   .creds li{ border-left:0; border-top:1px solid var(--line); }
@@ -623,7 +627,8 @@ html.js .reveal.is-in{ opacity:1; transform:none; transition:opacity .55s ease, 
   .hero__wreath{ display:none; }
   .wa-float span{ display:none; }
   .wa-float{ padding:.9rem; }
-  .footer-bottom{ flex-direction:column; }
+  .footer-bottom{ flex-direction:column; align-items:flex-start; }
+  .footer-bottom > span:last-child{ margin-left:0; }
 }
 
 /* --------------------------------------------------------------------------
