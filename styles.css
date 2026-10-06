@@ -603,6 +603,8 @@ html.js .reveal.is-in{ opacity:1; transform:none; transition:opacity .55s ease, 
   .pill__cta{ margin-top:.6rem; justify-content:center; }
 
   .hero__grid,.quote-panel,.split,.split--narrow,.contact-grid{ grid-template-columns:1fr; }
+  /* once the hero stacks, the portrait leads */
+  .hero__media{ order:-1; margin-bottom:.5rem; }
   .cards--3,.circles{ grid-template-columns:repeat(2,1fr); }
   .steps{ grid-template-columns:repeat(2,1fr); }
   .creds ul{ grid-template-columns:repeat(2,1fr); }
