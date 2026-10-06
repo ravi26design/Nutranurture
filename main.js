@@ -126,6 +126,48 @@
     });
   }
 
+  /* ------------------------------------------------------------ #anchors --
+     The browser performs its jump to location.hash before web fonts and
+     images have settled, so the page grows underneath it and the jump lands
+     short (often back at the top). Re-apply it once things stop moving.
+     scrollIntoView respects scroll-margin-top, so the fixed header is
+     cleared automatically. */
+  if (location.hash.length > 1) {
+    var anchor = null;
+    try { anchor = document.querySelector(location.hash); } catch (e) { anchor = null; }
+
+    if (anchor) {
+      var jump = function () {
+        // 'instant' matters: with scroll-behavior:smooth an animated scroll
+        // gets aborted when fonts finish loading and resize the page.
+        var margin = parseFloat(getComputedStyle(anchor).scrollMarginTop) || 0;
+        var y = anchor.getBoundingClientRect().top + window.scrollY - margin;
+        window.scrollTo({ top: Math.max(0, y), behavior: 'instant' });
+      };
+
+      // Re-apply until the page stops growing underneath us. Fonts, images and
+      // the reveal styles all settle at slightly different moments, and a
+      // single jump lands short whichever one you pick.
+      var settle = function () {
+        var last = -1, tries = 0;
+        var tick = function () {
+          jump();
+          var now = document.documentElement.scrollHeight;
+          tries++;
+          if (now !== last && tries < 12) {
+            last = now;
+            setTimeout(tick, 100);
+          }
+        };
+        tick();
+      };
+
+      settle();
+      window.addEventListener('load', settle);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(settle);
+    }
+  }
+
   /* -------------------------------------------------------------- footer */
   document.querySelectorAll('[data-year]').forEach(function (el) {
     el.textContent = String(new Date().getFullYear());

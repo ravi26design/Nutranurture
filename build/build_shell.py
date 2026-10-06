@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Shared chrome — floating pill nav, Cinzel headings, gradient footer."""
 
-VER = "11"
+VER = "13"
 
 PHONE = "+91 9920039625"
 PHONE_PRETTY = "+91 99200 39625"
@@ -14,7 +14,7 @@ INSTAGRAM = "#"
 FACEBOOK = "#"
 
 # Parked for now — rendered but not clickable (anchor with no href).
-DISABLED = {"about.html", "services.html", "corporate.html", "stories.html", "contact.html"}
+DISABLED = {"corporate.html", "stories.html", "contact.html"}
 
 NAV = [
     ("index.html", "Home"),
@@ -189,6 +189,8 @@ PARK_ALL = True
 import re as _re
 
 _KEEP = _re.compile(r'^(tel:|mailto:|#|index\.html)')
+# Pages that are signed off: every route to them works, buttons included.
+_LIVE = _re.compile(r'^(about|services)\.html([#?].*)?$')
 
 
 def park_ctas(html):
@@ -204,6 +206,8 @@ def park_ctas(html):
         cls = _re.search(r'class="([^"]*)"', tag)
         classes = cls.group(1) if cls else ''
         is_cta = any(c in classes for c in ('btn', 'textlink', 'wa-float'))
+        if href and _LIVE.match(href.group(1)):
+            return tag
         if href and _KEEP.match(href.group(1)) and not is_cta:
             return tag
         if not href and not is_cta:
